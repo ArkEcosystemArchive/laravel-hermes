@@ -4,8 +4,11 @@ namespace ARKEcosystem\Hermes\Components;
 
 use ARKEcosystem\Fortify\Components\Concerns\InteractsWithUser;
 use ARKEcosystem\Hermes\Enums\NotificationFilterEnum;
+use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\View as Facade;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -33,9 +36,9 @@ final class ManageNotifications extends Component
         $this->activeFilter = NotificationFilterEnum::ALL;
     }
 
-    public function render()
+    public function render(): View
     {
-        return view('hermes::components.manage-notifications', [
+        return Facade::make('hermes::components.manage-notifications', [
             'notificationCount' => $this->user->notifications()->count(),
         ]);
     }
@@ -52,7 +55,7 @@ final class ManageNotifications extends Component
         return count($this->selectedNotifications) === $this->notifications->count() && $this->notifications->count() > 0;
     }
 
-    public function getNotificationsProperty()
+    public function getNotificationsProperty(): Builder
     {
         return $this->applyFilter($this->activeFilter);
     }
@@ -158,7 +161,7 @@ final class ManageNotifications extends Component
         return 'bg-white';
     }
 
-    public function applyFilter(string $filter)
+    public function applyFilter(string $filter): Builder
     {
         if ($filter === NotificationFilterEnum::READ) {
             return $this->filterRead();
@@ -190,35 +193,35 @@ final class ManageNotifications extends Component
         ];
     }
 
-    private function filterAll()
+    private function filterAll(): Builder
     {
         $this->activeFilter = NotificationFilterEnum::ALL;
 
         return $this->user->notifications()->paginate($this->paginationLength);
     }
 
-    private function filterRead()
+    private function filterRead(): Builder
     {
         $this->activeFilter = NotificationFilterEnum::READ;
 
         return $this->user->notifications()->where('read_at', '!=', null)->paginate($this->paginationLength);
     }
 
-    private function filterUnread()
+    private function filterUnread(): Builder
     {
         $this->activeFilter = NotificationFilterEnum::UNREAD;
 
         return $this->user->notifications()->where('read_at', null)->paginate($this->paginationLength);
     }
 
-    private function filterStarred()
+    private function filterStarred(): Builder
     {
         $this->activeFilter = NotificationFilterEnum::STARRED;
 
         return $this->user->notifications()->where('is_starred', true)->paginate($this->paginationLength);
     }
 
-    private function filterUnstarred()
+    private function filterUnstarred(): Builder
     {
         $this->activeFilter = NotificationFilterEnum::UNSTARRED;
 

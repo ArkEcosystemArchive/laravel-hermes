@@ -1,10 +1,14 @@
-includes:
-    - ./vendor/nunomaduro/larastan/extension.neon
-
 parameters:
     paths:
         - src
     level: 8
     ignoreErrors:
-        - '#Unsafe usage of new static#'
+        # Livewire
+        - '#\$listeners has no typehint specified#'
+        # @FIXME
+        - '#\$hasAllSelected#'
+        - '#\$id#'
+        - '#\$notifications#'
+        - '#\$user#'
+        - '#Cannot call method#'
     checkMissingIterableValueType: false

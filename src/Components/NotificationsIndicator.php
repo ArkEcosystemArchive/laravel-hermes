@@ -3,7 +3,9 @@
 namespace ARKEcosystem\Hermes\Components;
 
 use Carbon\Carbon;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View as Facade;
 use Livewire\Component;
 
 final class NotificationsIndicator extends Component
@@ -12,20 +14,20 @@ final class NotificationsIndicator extends Component
 
     protected $listeners = ['markNotificationsAsSeen'];
 
-    public function mount()
+    public function mount(): void
     {
         $this->notificationsUnread = Auth::user() ? Auth::user()->hasUnreadNotifications() : false;
     }
 
-    public function markNotificationsAsSeen()
+    public function markNotificationsAsSeen(): void
     {
         Auth::user()->update(['seen_notifications_at' => Carbon::now()]);
 
         $this->notificationsUnread = false;
     }
 
-    public function render()
+    public function render(): View
     {
-        return view('hermes::components.notifications-indicator');
+        return Facade::make('hermes::components.notifications-indicator');
     }
 }
