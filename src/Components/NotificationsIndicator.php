@@ -14,7 +14,7 @@ final class NotificationsIndicator extends Component
 
     public function mount()
     {
-        $this->notificationsUnread = Auth::user() ? Auth::user()->hasNewNotifications() : false;
+        $this->notificationsUnread = Auth::user() ? Auth::user()->hasUnreadNotifications() : false;
     }
 
     public function markNotificationsAsSeen()
