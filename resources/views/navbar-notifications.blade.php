@@ -4,13 +4,13 @@
             @foreach($currentUser->notifications->take(4) as $notification)
                 <div class="flex px-2 py-3 leading-5 {{ ! $loop->last ? 'border-b border-solid border-theme-secondary-100' : '' }}">
                     <x-ark-notification-icon
-                        :logo="$notification->token->logo"
+                        :logo="$notification->logo()"
                         :type="$notification->data['type']"
                     />
                     <div class="flex flex-col w-full ml-4 space-y-1">
                         <div class="flex flex-row justify-between">
                             <span class="font-semibold text-theme-secondary-900">
-                                {{ $notification->token->name }}
+                                {{ $notification->name() }}
                             </span>
 
                             <span class="text-sm text-theme-secondary-400">
