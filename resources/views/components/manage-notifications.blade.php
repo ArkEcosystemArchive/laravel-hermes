@@ -88,7 +88,7 @@
                             <div class="flex justify-between w-full">
                                 <div class="flex flex-col w-full sm:flex-row">
                                     <div class="flex">
-                                        <x-notification-icon
+                                        <x-hermes-notification-icon
                                             :logo="$notification->token->logo ?? $notification->logo"
                                             :type="$notification->data['type']"
                                             :state-color="$this->getStateColor($notification)"
