@@ -69,7 +69,7 @@ class HermesServiceProvider extends ServiceProvider
             ], 'hermes-migrations');
 
             $this->publishes([
-                __DIR__ . '/../resources/images' => resource_path('images'),
+                __DIR__.'/../resources/images' => resource_path('images'),
             ], 'hermes-images');
         }
     }
