@@ -4,13 +4,13 @@
             @foreach($currentUser->notifications->take(4) as $notification)
                 <div class="flex px-2 py-6 leading-5 {{ ! $loop->last ? 'border-b border-dashed border-theme-secondary-200' : '' }}">
                     <x-hermes-notification-icon
+                        :logo="$notification->logo()"
                         :type="$notification->data['type']"
-                        :logo="$notification->token->logo ?? $notification->logo"
                     />
                     <div class="flex flex-col w-full ml-5 space-y-1">
                         <div class="flex flex-row justify-between">
                             <span class="font-semibold text-theme-secondary-900">
-                                {{ $notification->token->name ?? $notification->name }}
+                                {{ $notification->name() }}
                             </span>
 
                             <span class="hidden text-sm sm:block text-theme-secondary-400">
