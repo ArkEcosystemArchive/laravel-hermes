@@ -13,7 +13,7 @@
             <div class="flex flex-shrink-0 items-center justify-center rounded-full {{ $stateColor ?? 'bg-white' }} h-7 w-7">
                 @if ($type === 'danger')
                     <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-danger-100">
-                        @svg('danger', 'text-theme-danger-400 h-4 w-4')
+                        @svg('alert-danger', 'text-theme-danger-400 h-4 w-4')
                     </div>
                 @elseif ($type === 'success')
                     <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-success-100">
