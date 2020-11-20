@@ -1,4 +1,6 @@
 <div>
+    <h1 class="text-2xl font-bold md:text-4xl">@lang('hermes::pages.notifications.page_title')</h1>
+
     <div class="flex flex-col">
         <div class="flex flex-row justify-between mt-4 text-base font-semibold">
             <div class="relative flex flex-row mb-2 space-x-2 sm:static">
@@ -63,6 +65,7 @@
                     </x-ark-dropdown>
                 </div>
             </div>
+            <span class="flex justify-end items-center link">@lang('hermes::actions.mark_all_as_read')</span>
         </div>
 
         @if ($notificationCount > 0 && $this->notifications->count() > 0)
@@ -85,7 +88,7 @@
                             <div class="flex justify-between w-full">
                                 <div class="flex flex-col w-full sm:flex-row">
                                     <div class="flex">
-                                        <x-ark-notification-icon
+                                        <x-hermes-notification-icon
                                             :logo="$notification->logo()"
                                             :type="$notification->data['type']"
                                             :state-color="$this->getStateColor($notification)"
@@ -103,9 +106,9 @@
                                     </div>
 
                                     <div class="flex-col mt-4 sm:mt-0 sm:ml-4">
-                                        <div class="inline-flex">
+                                        <div class="inline-flex items-center space-x-5">
                                             <h3 class="text-xl font-semibold">{{ $notification->name() }}</h3>
-                                            <span class="ml-3">
+                                            <span>
                                                 @if ($notification->is_starred)
                                                     <button class="transition-default" wire:click.stop="$emit('markAsUnstarred', '{{ $notification->id }}')">
                                                         @svg('star', 'h-4 w-4 text-theme-warning-200')
