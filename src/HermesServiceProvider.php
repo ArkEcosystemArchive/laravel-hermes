@@ -4,6 +4,7 @@ namespace ARKEcosystem\Hermes;
 
 use ARKEcosystem\Hermes\Components\ManageNotifications;
 use ARKEcosystem\Hermes\Components\NotificationsIndicator;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -29,6 +30,8 @@ class HermesServiceProvider extends ServiceProvider
         $this->registerLoaders();
 
         $this->registerPublishers();
+
+        $this->registerBladeComponents();
 
         $this->registerLivewireComponents();
     }
@@ -65,6 +68,16 @@ class HermesServiceProvider extends ServiceProvider
                 __DIR__.'/../database/migrations' => database_path('migrations'),
             ], 'hermes-migrations');
         }
+    }
+
+    /**
+     * Register the Blade components.
+     *
+     * @return void
+     */
+    public function registerBladeComponents(): void
+    {
+        Blade::component('hermes::navbar-notifications', 'hermes-navbar-notifications');
     }
 
     /**
