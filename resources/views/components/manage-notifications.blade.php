@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="relative w-36">
-                    <x-ark-dropdown dropdown-classes="left-0 w-36 mt-3" button-class="h-10 w-36 dropdown-button">
+                    <x-ark-dropdown dropdown-classes="left-0 w-36 mt-3" button-class="h-10 w-36 dropdown-button dropdown-button-outline">
                         @slot('button')
                             <div class="inline-flex items-center justify-center w-full">
                                 <span class="w-full ml-4 font-semibold text-left text-theme-secondary-900">
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="w-10 sm:relative">
-                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="w-10 h-10 text-theme-primary-600 dropdown-button">
+                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="w-10 h-10 text-theme-primary-600 dropdown-button dropdown-button-outline">
                         <div class="py-3">
                             <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsRead">
                                 @lang('hermes::menus.notifications-dropdown.mark_selected_as_read')
@@ -65,7 +65,7 @@
                     </x-ark-dropdown>
                 </div>
             </div>
-            <span class="hidden sm:flex justify-end items-center link">@lang('hermes::actions.mark_all_as_read')</span>
+            <span class="hidden sm:flex justify-end items-center link cursor-pointer">@lang('hermes::actions.mark_all_as_read')</span>
         </div>
 
         <span class="flex sm:hidden items-center link mt-2">@lang('hermes::actions.mark_all_as_read')</span>
