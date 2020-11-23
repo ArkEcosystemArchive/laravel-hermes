@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="relative w-36">
-                    <x-ark-dropdown dropdown-classes="left-0 w-36 mt-3" button-class="h-10 w-36 dropdown-button border-solid border border-theme-secondary-200 rounded focus:bg-theme-primary-100">
+                    <x-ark-dropdown dropdown-classes="left-0 w-36 mt-3" button-class="h-10 w-36 dropdown-button-outline">
                         @slot('button')
                             <div class="inline-flex items-center justify-center w-full">
                                 <span class="w-full ml-4 font-semibold text-left text-theme-secondary-900">
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="w-10 sm:relative">
-                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="w-10 h-10 text-theme-primary-600 dropdown-button border-solid border border-theme-secondary-200 rounded focus:bg-theme-primary-100">
+                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="w-10 h-10 text-theme-primary-600 dropdown-button-outline">
                         <div class="py-3">
                             <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsRead">
                                 @lang('hermes::menus.notifications-dropdown.mark_selected_as_read')
