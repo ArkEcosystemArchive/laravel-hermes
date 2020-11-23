@@ -65,8 +65,10 @@
                     </x-ark-dropdown>
                 </div>
             </div>
-            <span class="flex justify-end items-center link">@lang('hermes::actions.mark_all_as_read')</span>
+            <span class="hidden sm:flex justify-end items-center link">@lang('hermes::actions.mark_all_as_read')</span>
         </div>
+
+        <span class="flex sm:hidden items-center link mt-2">@lang('hermes::actions.mark_all_as_read')</span>
 
         @if ($notificationCount > 0 && $this->notifications->count() > 0)
             @foreach($this->notifications as $notification)
