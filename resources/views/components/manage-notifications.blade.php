@@ -167,11 +167,6 @@
                     @endif
                 </span>
             </div>
-            <div class="mt-5">
-                <div class="md:block">
-                    <img class="p-2" src="{{ asset('images/defaults/no-notifications-page.svg') }}"/>
-                </div>
-            </div>
         @endif
     </div>
 </div>

@@ -67,10 +67,6 @@ class HermesServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../database/migrations' => database_path('migrations'),
             ], 'hermes-migrations');
-
-            $this->publishes([
-                __DIR__.'/../resources/images' => resource_path('images'),
-            ], 'hermes-images');
         }
     }
 
