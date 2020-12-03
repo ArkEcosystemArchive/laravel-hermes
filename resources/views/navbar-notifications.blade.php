@@ -25,7 +25,7 @@
 
                             <div class="flex flex-row space-x-4">
                                 @isset($notification->data['action'])
-                                    <span class="mt-1 font-semibold whitespace-no-wrap link sm:mt-0">
+                                    <span class="mt-1 font-semibold whitespace-nowrap link sm:mt-0">
                                         <a href="{{ $notification->data['action']['url'] }}">{{ $notification->data['action']['title'] }}</a>
                                     </span>
                                 @endisset

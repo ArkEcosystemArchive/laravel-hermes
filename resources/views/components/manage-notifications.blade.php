@@ -98,7 +98,7 @@
 
                                         <div class="flex justify-end w-full sm:hidden">
                                             <div class="flex-inline">
-                                                <span class="text-xs whitespace-no-wrap text-theme-secondary-400">
+                                                <span class="text-xs whitespace-nowrap text-theme-secondary-400">
                                                     {{ $notification->created_at_local->diffForHumans() }}
                                                 </span>
 
@@ -134,7 +134,7 @@
                                 </div>
 
                                 <div class="items-start hidden sm:flex">
-                                    <span class="text-xs whitespace-no-wrap text-theme-secondary-400">
+                                    <span class="text-xs whitespace-nowrap text-theme-secondary-400">
                                         {{ $notification->created_at_local->diffForHumans() }}
                                     </span>
 
