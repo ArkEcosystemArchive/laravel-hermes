@@ -108,15 +108,14 @@
                                     </div>
 
                                     <div class="flex-col mt-4 sm:mt-0 sm:ml-4">
-                                        <div class="inline-flex items-center space-x-5">
+                                        <div class="inline-flex items-start space-x-5">
                                             <h3 class="text-xl font-semibold">{{ $notification->name() }}</h3>
-                                            <span>
                                                 @if ($notification->is_starred)
-                                                    <button class="transition-default" wire:click.stop="$emit('markAsUnstarred', '{{ $notification->id }}')">
+                                                    <button class="transition-default sm:pr-2" wire:click.stop="$emit('markAsUnstarred', '{{ $notification->id }}')">
                                                         @svg('star', 'h-4 w-4 text-theme-warning-200')
                                                     </button>
                                                 @else
-                                                    <button class="transition-default" wire:click.stop="$emit('markAsStarred', '{{ $notification->id }}')">
+                                                    <button class="transition-default sm:pr-2" wire:click.stop="$emit('markAsStarred', '{{ $notification->id }}')">
                                                         @svg('star-outline', 'h-4 w-4')
                                                     </button>
                                                 @endif

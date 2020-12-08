@@ -9,11 +9,11 @@
                     />
                     <div class="flex flex-col w-full ml-5 space-y-1">
                         <div class="flex flex-row justify-between">
-                            <span class="font-semibold text-theme-secondary-900">
+                            <span class="font-semibold text-theme-secondary-900 @if(strlen($notification->name()) > 32)notification-truncate @endif">
                                 {{ $notification->name() }}
                             </span>
 
-                            <span class="hidden text-sm sm:block text-theme-secondary-400">
+                            <span class="hidden text-sm text-theme-secondary-400 sm:block sm:text-right sm:w-full">
                                 {{ $notification->created_at_local->diffForHumans() }}
                             </span>
                         </div>
