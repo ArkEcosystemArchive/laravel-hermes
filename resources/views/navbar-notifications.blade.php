@@ -8,12 +8,12 @@
                         :type="$notification->data['type']"
                     />
                     <div class="flex flex-col w-full ml-5 space-y-1">
-                        <div class="flex flex-row justify-between">
-                            <span class="font-semibold text-theme-secondary-900">
+                        <div class="flex flex-row justify-between sm:space-x-2">
+                            <span class="font-semibold text-theme-secondary-900 sm:truncate">
                                 {{ $notification->name() }}
                             </span>
 
-                            <span class="hidden text-sm sm:block text-theme-secondary-400">
+                            <span class="hidden text-sm sm:block text-theme-secondary-400 sm:truncate">
                                 {{ $notification->created_at_local->diffForHumans() }}
                             </span>
                         </div>
