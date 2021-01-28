@@ -1,7 +1,7 @@
 <div>
     @if($this->notificationsUnread ?? false)
-        <div class="absolute right-0 flex items-center justify-center w-3 h-3 mr-3 -mt-3 bg-white border-white rounded-full">
-            <div class="w-2 h-2 rounded-full bg-theme-danger-500"></div>
-        </div>
+        <span class="absolute right-0 block p-1 mr-2 -mt-4 bg-white rounded-full">
+            <span class="block w-1 h-1 rounded-full border-3 bg-theme-danger-500 border-theme-danger-500"></span>
+        </span>
     @endif
 </div>

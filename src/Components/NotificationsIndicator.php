@@ -24,6 +24,8 @@ final class NotificationsIndicator extends Component
         Auth::user()->update(['seen_notifications_at' => Carbon::now()]);
 
         $this->notificationsUnread = false;
+
+        $this->emit('notificationsCountUpdated');
     }
 
     public function render(): View
