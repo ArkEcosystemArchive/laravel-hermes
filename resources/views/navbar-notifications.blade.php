@@ -13,24 +13,24 @@
                                 {{ $notification->name() }}
                             </span>
 
-                            <span class="hidden text-sm text-theme-secondary-400 sm:block sm:text-right sm:w-full">
+                            <span class="hidden text-sm text-theme-secondary-400 md:block md:text-right md:w-full">
                                 {{ $notification->created_at_local->diffForHumans() }}
                             </span>
                         </div>
 
-                        <div class="flex flex-col justify-between md:space-x-3 sm:flex-row">
+                        <div class="flex flex-col justify-between md:space-x-3 md:flex-row">
                             <span class="notification-truncate">
                                 {{ $notification->data['content'] }}
                             </span>
 
                             <div class="flex flex-row space-x-4">
                                 @isset($notification->data['action'])
-                                    <span class="mt-1 font-semibold whitespace-nowrap link sm:mt-0">
+                                    <span class="mt-1 font-semibold whitespace-nowrap link md:mt-0">
                                         <a href="{{ $notification->data['action']['url'] }}">{{ $notification->data['action']['title'] }}</a>
                                     </span>
                                 @endisset
 
-                                <span class="block mt-1 text-sm sm:hidden text-theme-secondary-400">
+                                <span class="block mt-1 text-sm md:hidden text-theme-secondary-400">
                                     {{ $notification->created_at_local->diffForHumans() }}
                                 </span>
                             </div>
