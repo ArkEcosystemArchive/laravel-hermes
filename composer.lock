@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2c39fafeb2630e60830025a56162521",
+    "content-hash": "690ce2284f2559c9428c54a6dc5ceac9",
     "packages": [
         {
             "name": "arkecosystem/fortify",
-            "version": "2.0.5",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ArkEcosystem/laravel-fortify.git",
-                "reference": "3aa688649cacf2bd46b811d38138ecc74d690a95"
+                "reference": "acf35f78ee8fb46b738730dc7feca28a835498ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ArkEcosystem/laravel-fortify/zipball/3aa688649cacf2bd46b811d38138ecc74d690a95",
-                "reference": "3aa688649cacf2bd46b811d38138ecc74d690a95",
+                "url": "https://api.github.com/repos/ArkEcosystem/laravel-fortify/zipball/acf35f78ee8fb46b738730dc7feca28a835498ca",
+                "reference": "acf35f78ee8fb46b738730dc7feca28a835498ca",
                 "shasum": ""
             },
             "require": {
-                "arkecosystem/ui": "^1.0",
+                "arkecosystem/ui": "^2.0",
                 "illuminate/support": "^8.0",
                 "jenssegers/agent": "^2.6",
                 "konceiver/laravel-data-bags": "^1.1",
@@ -75,22 +75,22 @@
             "description": "Authentication Scaffolding for Laravel. Powered by Laravel Fortify.",
             "support": {
                 "issues": "https://github.com/ArkEcosystem/laravel-fortify/issues",
-                "source": "https://github.com/ArkEcosystem/laravel-fortify/tree/2.0.5"
+                "source": "https://github.com/ArkEcosystem/laravel-fortify/tree/3.1.0"
             },
-            "time": "2021-02-03T09:56:58+00:00"
+            "time": "2021-02-03T10:10:52+00:00"
         },
         {
             "name": "arkecosystem/ui",
-            "version": "1.6.20",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ArkEcosystem/laravel-ui.git",
-                "reference": "8f87c6bc40ef9f580ca6ee14768434a2aed40ac1"
+                "reference": "443741031be1a7ee1e015d59146c099d4361ec00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ArkEcosystem/laravel-ui/zipball/8f87c6bc40ef9f580ca6ee14768434a2aed40ac1",
-                "reference": "8f87c6bc40ef9f580ca6ee14768434a2aed40ac1",
+                "url": "https://api.github.com/repos/ArkEcosystem/laravel-ui/zipball/443741031be1a7ee1e015d59146c099d4361ec00",
+                "reference": "443741031be1a7ee1e015d59146c099d4361ec00",
                 "shasum": ""
             },
             "require": {
@@ -151,9 +151,9 @@
             "description": "User-Interface Scaffolding for Laravel. Powered by TailwindCSS.",
             "support": {
                 "issues": "https://github.com/ArkEcosystem/laravel-ui/issues",
-                "source": "https://github.com/ArkEcosystem/laravel-ui/tree/1.6.20"
+                "source": "https://github.com/ArkEcosystem/laravel-ui/tree/2.0.0"
             },
-            "time": "2021-02-02T05:54:15+00:00"
+            "time": "2021-02-03T09:39:38+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
