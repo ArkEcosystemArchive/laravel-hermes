@@ -13,8 +13,8 @@
         "php": "^8.0",
         "illuminate/support": "^8.0",
         "livewire/livewire": "^2.0",
-        "arkecosystem/ui": "^1.6",
-        "arkecosystem/fortify": "^2.0"
+        "arkecosystem/ui": "^2.0",
+        "arkecosystem/fortify": "^3.1"
     },
     "autoload": {
         "psr-4": {
