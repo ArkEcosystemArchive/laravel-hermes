@@ -2,8 +2,8 @@
     <h1 class="text-2xl font-bold md:text-4xl">@lang('hermes::pages.notifications.page_title')</h1>
 
     <div class="flex flex-col">
-        <div class="flex flex-row justify-between mt-4 text-base font-semibold">
-            <div class="relative flex flex-row mb-2 space-x-2 sm:static">
+        <div class="flex flex-row justify-between mt-4 mb-2 text-base font-semibold sm:px-6 ">
+            <div class="relative flex flex-row space-x-2 sm:static">
                 <div class="relative">
                     <div class="flex items-center justify-center w-10 h-10 border border-solid rounded cursor-pointer text-theme-secondary-400 border-theme-secondary-200 hover:text-theme-primary-500 focus:outline-none" wire:click="{{ $this->hasAllSelected ? 'deselectAllNotifications' : 'selectAllNotifications' }}">
                         @if($this->hasAllSelected)
@@ -16,15 +16,15 @@
                     </div>
                 </div>
 
-                <div class="relative w-36">
-                    <x-ark-dropdown dropdown-classes="left-0 w-36 mt-3" button-class="h-10 w-36 dropdown-button dropdown-button-outline">
+                <div class="relative">
+                    <x-ark-dropdown wrapper-class="inline-block" dropdown-classes="mt-3" button-class="h-10 dropdown-button dropdown-button-outline">
                         @slot('button')
-                            <div class="inline-flex items-center justify-center w-full">
-                                <span class="w-full ml-4 font-semibold text-left text-theme-secondary-900">
+                            <div class="inline-flex items-center justify-center w-full space-x-2">
+                                <span class="w-full font-semibold text-left text-theme-secondary-900">
                                     {{ ucfirst($this->activeFilter) }}
                                 </span>
 
-                                <span :class="{ 'rotate-180': open }" class="mr-4 transition duration-150 ease-in-out text-theme-primary-600">
+                                <span :class="{ 'rotate-180': open }" class="transition duration-150 ease-in-out text-theme-primary-600">
                                     @svg('chevron-down', 'h-3 w-3')
                                 </span>
                             </div>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="w-10 sm:relative">
-                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="w-10 h-10 text-theme-primary-600 dropdown-button dropdown-button-outline">
+                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="w-10 h-10 rounded bg-theme-primary-100 text-theme-primary-600 dropdown-button">
                         <div class="py-3">
                             <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsRead">
                                 @lang('hermes::menus.notifications-dropdown.mark_selected_as_read')
@@ -65,10 +65,10 @@
                     </x-ark-dropdown>
                 </div>
             </div>
-            <span class="hidden sm:flex justify-end items-center link cursor-pointer">@lang('hermes::actions.mark_all_as_read')</span>
+            <span class="items-center justify-end hidden cursor-pointer sm:flex link">@lang('hermes::actions.mark_all_as_read')</span>
         </div>
 
-        <span class="flex sm:hidden items-center link mt-2">@lang('hermes::actions.mark_all_as_read')</span>
+        <span class="flex items-center mt-2 sm:hidden link">@lang('hermes::actions.mark_all_as_read')</span>
 
         @if ($notificationCount > 0 && $this->notifications->count() > 0)
             @foreach($this->notifications as $notification)
