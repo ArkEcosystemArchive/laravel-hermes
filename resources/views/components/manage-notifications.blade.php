@@ -25,7 +25,7 @@
                                 </span>
 
                                 <span :class="{ 'rotate-180': open }" class="transition duration-150 ease-in-out text-theme-primary-600">
-                                    @svg('chevron-down', 'h-3 w-3')
+                                    <x-ark-icon name="chevron-down" size="xs" />
                                 </span>
                             </div>
                         @endslot
