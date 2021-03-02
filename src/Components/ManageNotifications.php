@@ -153,7 +153,7 @@ final class ManageNotifications extends Component
     public function getStateColor(DatabaseNotification $notification): string
     {
         if ($this->isNotificationSelected($notification->id)) {
-            return 'bg-theme-success-100';
+            return 'bg-theme-success-50';
         } elseif (! $this->isNotificationSelected($notification->id) && $notification->unread()) {
             return 'bg-theme-secondary-100';
         }

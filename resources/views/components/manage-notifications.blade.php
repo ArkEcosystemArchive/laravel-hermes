@@ -2,16 +2,16 @@
     <h1 class="text-2xl font-bold md:text-4xl">@lang('hermes::pages.notifications.page_title')</h1>
 
     <div class="flex flex-col">
-        <div class="flex flex-row justify-between mt-4 mb-2 text-base font-semibold sm:px-6 ">
+        <div class="flex flex-row justify-between w-full mt-4 mb-2 text-base font-semibold sm:px-6">
             <div class="relative flex flex-row space-x-2 sm:static">
                 <div class="relative">
                     <div class="flex items-center justify-center w-10 h-10 border border-solid rounded cursor-pointer text-theme-secondary-400 border-theme-secondary-200 hover:text-theme-primary-500 focus:outline-none" wire:click="{{ $this->hasAllSelected ? 'deselectAllNotifications' : 'selectAllNotifications' }}">
                         @if($this->hasAllSelected)
-                            <div class="flex items-center justify-center w-5 h-5 rounded-full bg-theme-success-500">
-                                @svg('checkmark', 'text-white h-3 w-3')
+                            <div class="flex items-center justify-center w-5 h-5 text-white rounded bg-theme-success-500">
+                                <x-ark-icon name="checkmark" size="2xs" />
                             </div>
                         @else
-                            @svg('circle', 'h-5 w-5')
+                            <span class="block w-5 h-5 text-white border-2 rounded border-theme-secondary-300"></span>
                         @endif
                     </div>
                 </div>
@@ -72,72 +72,74 @@
 
         @if ($notificationCount > 0 && $this->notifications->count() > 0)
             @foreach($this->notifications as $notification)
-                <div class="pt-2">
-                    <div class="flex rounded-lg {{ $this->getStateColor($notification) }} px-6 py-5 cursor-pointer" wire:click="$emit('markAsRead', '{{ $notification->id }}')">
-                        <div class="flex w-full">
+                <div class="pt-2 -mx-4 sm:mx-0">
+                    <div class="flex flex-col sm:flex-row rounded-lg space-y-4 sm:space-y-0 sm:space-x-4 {{ $this->getStateColor($notification) }} px-6 py-5 cursor-pointer" wire:click="$emit('markAsRead', '{{ $notification->id }}')">
+                        <div class="flex justify-between flex-shrink-0 ">
                             @if ($this->isNotificationSelected($notification->id))
-                                <div class="box-border flex justify-center flex-shrink-0 w-5 h-5 mr-4 rounded-full cursor-pointer bg-theme-success-500" wire:click.stop="$emit('setNotification', '{{ $notification->id }}')">
-                                    <button type="button">
-                                        @svg('checkmark', 'text-white h-3 w-3')
-                                    </button>
-                                </div>
-                            @elseif ($notification->unread())
-                                <div class="box-border flex flex-shrink-0 w-5 h-5 mr-4 border-2 rounded-full cursor-pointer border-theme-primary-500" wire:click.stop="$emit('setNotification', '{{ $notification->id }}')"></div>
+                                <button
+                                    type="button"
+                                    wire:click.stop="$emit('setNotification', '{{ $notification->id }}')"
+                                    class="box-border flex items-center justify-center w-5 h-5 text-white rounded cursor-pointer bg-theme-success-500"
+                                >
+                                    <x-ark-icon name="checkmark" size="2xs" />
+                                </button>
                             @else
-                                <div class="box-border flex flex-shrink-0 w-5 h-5 mr-4 border-2 rounded-full cursor-pointer" wire:click.stop="$emit('setNotification', '{{ $notification->id }}')"></div>
+                                <span class="block w-5 h-5 text-white border-2 rounded border-theme-secondary-300" wire:click.stop="$emit('setNotification', '{{ $notification->id }}')"></span>
                             @endif
 
-                            <div class="flex justify-between w-full">
-                                <div class="flex flex-col w-full sm:flex-row">
-                                    <div class="flex">
-                                        <x-hermes-notification-icon
-                                            :logo="$notification->logo()"
-                                            :type="$notification->data['type']"
-                                            :state-color="$this->getStateColor($notification)"
-                                        />
-
-                                        <div class="flex justify-end w-full sm:hidden">
-                                            <div class="flex-inline">
-                                                <span class="text-xs whitespace-nowrap text-theme-secondary-400">
-                                                    {{ $notification->created_at_local->diffForHumans() }}
-                                                </span>
-
-                                                <button class="align-middle" wire:click="deleteNotification('{{ $notification->id }}')">@svg('trash', 'h-4 w-3 ml-2 text-theme-secondary-400 cursor-pointer hover:text-theme-primary-500')</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex-col mt-4 sm:mt-0 sm:ml-4">
-                                        <div class="inline-flex items-start space-x-5">
-                                            <h3 class="text-xl font-semibold">{{ $notification->name() }}</h3>
-                                                @if ($notification->is_starred)
-                                                    <button class="transition-default sm:pr-2" wire:click.stop="$emit('markAsUnstarred', '{{ $notification->id }}')">
-                                                        @svg('star', 'h-4 w-4 text-theme-warning-200')
-                                                    </button>
-                                                @else
-                                                    <button class="transition-default sm:pr-2" wire:click.stop="$emit('markAsStarred', '{{ $notification->id }}')">
-                                                        @svg('star-outline', 'h-4 w-4')
-                                                    </button>
-                                                @endif
-                                            </span>
-                                        </div>
-                                        <div class="leading-5 text-theme-secondary-600">
-                                            <div class="flex flex-col sm:block">
-                                                <span>{{ $notification->data['content'] }}</span>
-                                                @isset($notification->data['action'])
-                                                    <a href="{{ $notification->data['action']['url'] }}" class="font-semibold link">{{ $notification->data['action']['title'] }}</a>
-                                                @endisset
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="space-x-2 flex-inline sm:hidden">
+                                <span class="text-xs whitespace-nowrap text-theme-secondary-400">
+                                    {{ $notification->created_at_local->diffForHumans() }}
+                                </span>
+                                
+                                <button type="button" wire:click.stop="deleteNotification('{{ $notification->id }}')" class="cursor-pointer text-theme-secondary-300 hover:text-theme-primary-500">
+                                    <x-ark-icon name="trash" size="sm" />
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between w-full">
+                            <div class="flex flex-row w-full space-x-4">
+                                <div class="flex">
+                                    <x-hermes-notification-icon
+                                        :logo="$notification->logo()"
+                                        :type="$notification->data['type']"
+                                        :state-color="$this->getStateColor($notification)"
+                                    />
                                 </div>
 
-                                <div class="items-start hidden sm:flex">
-                                    <span class="text-xs whitespace-nowrap text-theme-secondary-400">
-                                        {{ $notification->created_at_local->diffForHumans() }}
-                                    </span>
+                                <div class="flex-col w-full space-y-1">
+                                    <div class="flex justify-between space-x-3">
+                                        <div class="inline-flex items-start items-center space-x-3">
+                                            <h3 class="mb-0 text-xl font-semibold">{{ $notification->name() }}</h3>
+                                            @if ($notification->is_starred)
+                                                <button class="transition-default sm:pr-2" wire:click.stop="$emit('markAsUnstarred', '{{ $notification->id }}')">
+                                                    <x-ark-icon name="star" size="sm" class="text-theme-warning-200" />
+                                                </button>
+                                            @else
+                                                <button class="transition-default sm:pr-2" wire:click.stop="$emit('markAsStarred', '{{ $notification->id }}')">
+                                                    <x-ark-icon name="star-outline" size="sm" class="text-theme-secondary-400" />
+                                                </button>
+                                            @endif
+                                        </div>
 
-                                    <button wire:click.stop="deleteNotification('{{ $notification->id }}')">@svg('trash', 'h-4 w-3 ml-2 text-theme-secondary-400 cursor-pointer hover:text-theme-primary-500')</button>
+                                        <div class="items-start hidden space-x-2 sm:flex">
+                                            <span class="text-xs whitespace-nowrap text-theme-secondary-400">
+                                                {{ $notification->created_at_local->diffForHumans() }}
+                                            </span>
+        
+                                            <button type="button" wire:click.stop="deleteNotification('{{ $notification->id }}')" class="cursor-pointer text-theme-secondary-300 hover:text-theme-primary-500">
+                                                <x-ark-icon name="trash" size="sm" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="leading-5 text-theme-secondary-600">
+                                        <div class="flex flex-col sm:block">
+                                            <span>{{ $notification->data['content'] }}</span>
+                                            @isset($notification->data['action'])
+                                                <a href="{{ $notification->data['action']['url'] }}" class="font-semibold link">{{ $notification->data['action']['title'] }}</a>
+                                            @endisset
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +147,7 @@
                 </div>
 
                 @if (! $loop->last)
-                    <div class="px-10">
+                    <div class="sm:px-10">
                         <hr class="mt-2 border-b border-dashed border-theme-secondary-200" />
                     </div>
                 @endif
