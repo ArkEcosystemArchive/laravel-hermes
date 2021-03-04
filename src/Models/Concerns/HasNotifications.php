@@ -5,9 +5,10 @@ namespace ARKEcosystem\Hermes\Models\Concerns;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Notifications\RoutesNotifications;
+use Illuminate\Support\Collection;
 
 /**
- * @property $notifications
+ * @property Collection $notifications
  */
 trait HasNotifications
 {
