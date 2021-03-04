@@ -8,7 +8,6 @@ use Illuminate\Notifications\RoutesNotifications;
 
 /**
  * @property $notifications
- * @property $starredNotifications
  */
 trait HasNotifications
 {
