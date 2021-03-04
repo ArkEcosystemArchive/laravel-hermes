@@ -8,6 +8,7 @@ use Illuminate\Notifications\RoutesNotifications;
 
 /**
  * @property $notifications
+ * @property $starredNotifications
  */
 trait HasNotifications
 {
@@ -23,17 +24,17 @@ trait HasNotifications
 
     public function readNotifications(): Builder
     {
-        return $this->notifications->whereNotNull('read_at');
+        return $this->notifications()->whereNotNull('read_at');
     }
 
     public function unreadNotifications(): Builder
     {
-        return $this->notifications->whereNull('read_at');
+        return $this->notifications()->whereNull('read_at');
     }
 
-    public function starredNotifications(): MorphMany
+    public function starredNotifications(): Builder
     {
-        return $this->notifications->where('is_starred', true);
+        return $this->notifications()->where('is_starred', true);
     }
 
     public function hasUnreadNotifications(): bool
