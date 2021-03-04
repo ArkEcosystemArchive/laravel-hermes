@@ -5,7 +5,11 @@ namespace ARKEcosystem\Hermes\Models\Concerns;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Notifications\RoutesNotifications;
+use Illuminate\Support\Collection;
 
+/**
+ * @property Collection $notifications
+ */
 trait HasNotifications
 {
     use RoutesNotifications;
@@ -28,14 +32,14 @@ trait HasNotifications
         return $this->notifications()->whereNull('read_at');
     }
 
-    public function starredNotifications(): MorphMany
+    public function starredNotifications(): Builder
     {
         return $this->notifications()->where('is_starred', true);
     }
 
     public function hasUnreadNotifications(): bool
     {
-        $latestNotification = $this->notifications()->latest()->first();
+        $latestNotification = $this->notifications->first();
 
         if (! $latestNotification) {
             return false;
