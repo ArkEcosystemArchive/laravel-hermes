@@ -100,6 +100,11 @@ final class ManageNotifications extends Component
         }
     }
 
+    public function markAllAsRead(): void
+    {
+        $this->user->notifications->each->markAsRead();
+    }
+
     public function markAsUnread(string $notificationId): void
     {
         $this->user->notifications()->findOrFail($notificationId)->markAsUnread();
