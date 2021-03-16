@@ -24,7 +24,7 @@
                                     {{ ucfirst($this->activeFilter) }}
                                 </span>
 
-                                <span :class="{ 'rotate-180': open }" class="transition duration-150 ease-in-out text-theme-primary-600">
+                                <span :class="{ 'rotate-180': dropdownOpen }" class="transition duration-150 ease-in-out text-theme-primary-600">
                                     <x-ark-icon name="chevron-down" size="xs" />
                                 </span>
                             </div>
@@ -65,10 +65,10 @@
                     </x-ark-dropdown>
                 </div>
             </div>
-            <span class="items-center justify-end hidden cursor-pointer sm:flex link">@lang('hermes::actions.mark_all_as_read')</span>
+            <button type="button" class="items-center justify-end hidden cursor-pointer sm:flex link" wire:click="markAllAsRead">@lang('hermes::actions.mark_all_as_read')</button>
         </div>
 
-        <span class="flex items-center mt-2 sm:hidden link">@lang('hermes::actions.mark_all_as_read')</span>
+        <button type="button" class="flex items-center mt-2 sm:hidden link" wire:click="markAllAsRead">@lang('hermes::actions.mark_all_as_read')</button>
 
         @if ($notificationCount > 0 && $this->notifications->count() > 0)
             @foreach($this->notifications as $notification)
