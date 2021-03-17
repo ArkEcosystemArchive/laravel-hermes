@@ -16,7 +16,13 @@ abstract class DatabaseNotification extends BaseNotification
 
     abstract public function logo(): string;
 
-    abstract public function logoMedia(): ?Media;
+    public function logoMedia(): ?Media
+    {
+        return null;
+    }
 
-    abstract public function logoIdentifier(): ?string;
+    public function logoIdentifier(): ?string
+    {
+        return null;
+    }
 }
