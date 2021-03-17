@@ -1,6 +1,10 @@
 <div class="relative inline-block pointer-events-none avatar-wrapper">
     <div class="relative w-11 h-11">
-        @isset($logo)
+        @if(isset($logoMedia))
+            {{ $logoMedia->img('', ['class' => 'absolute object-cover w-full h-full rounded-md']) }}
+        @elseif(isset($logoIdentifier))
+            <x-ark-avatar :identifier="$logoIdentifier" class="absolute object-cover w-full h-full rounded-md" />
+        @elseif(isset($logo))
             <img class="object-cover rounded-md" src="{{ $logo }}" />
         @else
             <div class="border border-theme-secondary-200 w-11 h-11"></div>
