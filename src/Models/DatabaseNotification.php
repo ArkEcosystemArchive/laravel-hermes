@@ -24,12 +24,12 @@ abstract class DatabaseNotification extends BaseNotification
      */
     protected static function booted()
     {
-        static::creating(function (DatabaseNotification $notification) {
+        static::creating(function (self $notification) {
             $data = Arr::get($notification, 'data');
             $notification->relatable_id = Arr::get($data, 'relatable_id');
             $notification->relatable_type = Arr::get($data, 'relatable_type');
-            unset($data['relatable_type']);
-            unset($data['relatable_id']);
+            unset($data['relatable_type'], $data['relatable_id']);
+
             $notification->data = $data;
         });
     }
