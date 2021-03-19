@@ -11,6 +11,7 @@ use Illuminate\Support\Arr;
 /**
  * @property string $relatable_type
  * @property int $relatable_id
+ * @property array $data
  */
 abstract class DatabaseNotification extends BaseNotification
 {
