@@ -25,6 +25,12 @@ abstract class DatabaseNotification extends BaseNotification
      */
     protected static function booted()
     {
+        // When creating a new DatabaseNotification, we are only allowed to fill
+        // the `data` attribute so there is no easy way to assign the relatable
+        // model. As a workaorund to avoid the need to add more steps that may 
+        // complicate the notification creation the lines here take the relatable
+        // info from the data and move it to the proper columns before storing the
+        // model in the database.
         static::creating(function (self $notification) {
             $data = Arr::get($notification, 'data');
             $notification->relatable_id = Arr::get($data, 'relatable_id');
