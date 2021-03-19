@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Notifications\DatabaseNotification as BaseNotification;
 use Illuminate\Support\Arr;
 
+/**
+ * @property string $relatable_type
+ * @property int $relatable_id
+ */
 abstract class DatabaseNotification extends BaseNotification
 {
     use HasFactory;
