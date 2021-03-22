@@ -101,9 +101,7 @@
                             <div class="flex flex-row w-full space-x-4">
                                 <div class="flex">
                                     <x-hermes-notification-icon
-                                        :logo="$notification->logo()"
-                                        :logo-media="$notification->logoMedia()"
-                                        :logo-identifier="$notification->logoIdentifier()"
+                                        :notification="$notification"
                                         :type="$notification->data['type']"
                                         :state-color="$this->getStateColor($notification)"
                                     />

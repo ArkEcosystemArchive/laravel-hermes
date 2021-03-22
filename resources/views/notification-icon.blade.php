@@ -1,11 +1,24 @@
+@props([
+    'notification',
+    'type' => '',
+    'stateColor' => 'bg-white',
+])
+
+@php
+    $relatable = $notification->relatable;
+    $media = optional($relatable)->logo(); 
+    $identifier = optional($relatable)->fallbackIdentifier(); 
+    $defaultLogo =  $notification->logo();
+@endphp
+
 <div class="relative inline-block pointer-events-none avatar-wrapper">
     <div class="relative w-11 h-11">
-        @if(isset($logoMedia))
-            {{ $logoMedia->img('', ['class' => 'absolute object-cover w-full h-full rounded-md']) }}
-        @elseif(isset($logoIdentifier))
-            <x-ark-avatar :identifier="$logoIdentifier" class="absolute object-cover w-full h-full rounded-md" />
-        @elseif(isset($logo))
-            <img class="object-cover rounded-md" src="{{ $logo }}" />
+        @if($media)
+            {{ $media->img('', ['class' => 'absolute object-cover w-full h-full rounded-md']) }}
+        @elseif($identifier)
+            <x-ark-avatar :identifier="$identifier" class="absolute object-cover w-full h-full rounded-md" />
+        @elseif($defaultLogo)
+            <img class="object-cover rounded-md" src="{{ $defaultLogo }}" />
         @else
             <div class="border border-theme-secondary-200 w-11 h-11"></div>
         @endif
@@ -14,7 +27,7 @@
             class="absolute flex items-center justify-center text-transparent rounded-full avatar-circle shadow-solid"
             style="right: -0.8rem; top: -0.9rem;"
         >
-            <div class="flex flex-shrink-0 items-center justify-center rounded-full {{ $stateColor ?? 'bg-white' }} h-7 w-7">
+            <div class="flex flex-shrink-0 items-center justify-center rounded-full {{ $stateColor }} h-7 w-7">
                 @if ($type === 'danger')
                     <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-danger-100">
                         @svg('alert-danger', 'text-theme-danger-400 h-4 w-4')
