@@ -14,7 +14,7 @@ final class CreateNotificationsTable extends Migration
             $table->uuid('id')->primary();
             $table->string('type');
             $table->morphs('notifiable');
-            $table->morphs('relatable');
+            $table->nullableMorphs('relatable');
             $table->text('data');
             $table->timestamp('read_at')->nullable();
             $table->boolean('is_starred')->default(false);
