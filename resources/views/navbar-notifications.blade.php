@@ -8,13 +8,13 @@
                         :type="$notification->data['type']"
                     />
 
-                    <div class="flex flex-col w-full ml-5 space-y-1">
+                    <div class="flex flex-col w-full ml-5 space-y-1 overflow-auto">
                         <div class="flex flex-row justify-between">
-                            <span class="font-semibold text-theme-secondary-900 @if(strlen($notification->name()) > 32)notification-truncate @endif">
+                            <span class="flex-grow font-semibold truncate text-theme-secondary-900">
                                 {{ $notification->name() }}
                             </span>
 
-                            <span class="hidden text-sm text-theme-secondary-400 md:block md:text-right md:w-full">
+                            <span class="hidden text-sm text-theme-secondary-400 md:block md:text-right whitespace-nowrap">
                                 {{ $notification->created_at_local->diffForHumans() }}
                             </span>
                         </div>
