@@ -7,6 +7,8 @@ This file contains basic examples and explains the parameters that can be used f
 ### Notification Icon
 
 ```php
+<x-hermes-notification-icon type="warning" />
+
 <x-hermes-notification-icon type="success" :notification="$notification" />
 <x-hermes-notification-icon type="warning" :notification="$notification" />
 <x-hermes-notification-icon type="danger" :notification="$notification" />
