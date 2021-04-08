@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="relative">
-                    <x-ark-dropdown wrapper-class="inline-block" dropdown-classes="mt-3" button-class="h-10 dropdown-button dropdown-button-outline">
+                    <x-ark-dropdown wrapper-class="inline-block" dropdown-classes="mt-3" button-class="h-10 dropdown-button-outline flex justify-center items-center p-4">
                         @slot('button')
                             <div class="inline-flex items-center justify-center w-full space-x-2">
                                 <span class="w-full font-semibold text-left text-theme-secondary-900">
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="w-10 sm:relative">
-                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="w-10 h-10 rounded bg-theme-primary-100 text-theme-primary-600 dropdown-button">
+                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="flex justify-center w-10 h-10 rounded bg-theme-primary-100 text-theme-primary-600">
                         <div class="py-3">
                             <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsRead">
                                 @lang('hermes::menus.notifications-dropdown.mark_selected_as_read')
@@ -91,7 +91,7 @@
                                 <span class="text-xs whitespace-nowrap text-theme-secondary-400">
                                     {{ $notification->created_at_local->diffForHumans() }}
                                 </span>
-                                
+
                                 <button type="button" wire:click.stop="deleteNotification('{{ $notification->id }}')" class="cursor-pointer text-theme-secondary-300 hover:text-theme-primary-500">
                                     <x-ark-icon name="trash" size="sm" />
                                 </button>
@@ -126,7 +126,7 @@
                                             <span class="text-xs whitespace-nowrap text-theme-secondary-400">
                                                 {{ $notification->created_at_local->diffForHumans() }}
                                             </span>
-        
+
                                             <button type="button" wire:click.stop="deleteNotification('{{ $notification->id }}')" class="cursor-pointer text-theme-secondary-300 hover:text-theme-primary-500">
                                                 <x-ark-icon name="trash" size="sm" />
                                             </button>
