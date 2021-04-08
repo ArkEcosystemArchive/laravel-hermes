@@ -1,5 +1,5 @@
 <div>
-    <h1 class="text-2xl font-bold md:text-4xl">@lang('hermes::pages.notifications.page_title')</h1>
+    <h1 class="text-2xl font-bold md:text-4xl px-6">@lang('hermes::pages.notifications.page_title')</h1>
 
     <div class="flex flex-col">
         <div class="flex flex-row justify-between w-full mt-4 mb-2 text-base font-semibold sm:px-6">
