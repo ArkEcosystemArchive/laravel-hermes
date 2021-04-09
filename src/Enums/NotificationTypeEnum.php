@@ -15,4 +15,6 @@ final class NotificationTypeEnum
     const COMMENT = 'comment';
 
     const MENTION = 'mention';
+
+    const ANNOUNCEMENT = 'announcement';
 }

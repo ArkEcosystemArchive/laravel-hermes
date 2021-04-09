@@ -50,7 +50,11 @@
                     </div>
                 @elseif ($type === ARKEcosystem\Hermes\Enums\NotificationFilterEnum::MENTION)
                     <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-secondary-200">
-                        <x-ark-icon name="notifications.mention" size="sm" class="text-theme-secondary-900" />
+                        <x-ark-icon name="notifications.mention" size="xs" class="text-theme-secondary-900" />
+                    </div>
+                @elseif ($type === ARKEcosystem\Hermes\Enums\NotificationFilterEnum::ANNOUNCEMENT)
+                    <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-warning-100">
+                        <x-ark-icon name="notification" size="sm" class="text-theme-warning-600" />
                     </div>
                 @endif
             </div>
