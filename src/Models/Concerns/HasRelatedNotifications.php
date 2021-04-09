@@ -9,6 +9,11 @@ trait HasRelatedNotifications
       return $this->morphMany(config('hermes.models.notification'), 'relatable');
   }
 
+  public function relatedNotificationsByLogo()
+  {
+      return $this->morphMany(config('hermes.models.notification'), 'relatable_logo');
+  }
+
   /**
    * Register any events for your application.
    *
@@ -18,6 +23,7 @@ trait HasRelatedNotifications
   {
       static::deleting(function (self $model) {
         $model->relatedNotifications()->delete();
+        $model->relatedNotificationsByLogo()->delete();
       });
   }
 }
