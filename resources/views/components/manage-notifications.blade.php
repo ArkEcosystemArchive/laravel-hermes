@@ -1,5 +1,5 @@
 <div>
-    <h1 class="text-2xl font-bold md:text-4xl px-6">@lang('hermes::pages.notifications.page_title')</h1>
+    <h1 class="px-6 text-2xl font-bold md:text-4xl">@lang('hermes::pages.notifications.page_title')</h1>
 
     <div class="flex flex-col">
         <div class="flex flex-row justify-between w-full mt-4 mb-2 text-base font-semibold sm:px-6">
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="relative">
-                    <x-ark-dropdown wrapper-class="inline-block" dropdown-classes="mt-3" button-class="h-10 dropdown-button-outline flex justify-center items-center p-4">
+                    <x-ark-dropdown wrapper-class="inline-block" dropdown-classes="mt-3" button-class="flex items-center justify-center h-10 p-4 dropdown-button-outline">
                         @slot('button')
                             <div class="inline-flex items-center justify-center w-full space-x-2">
                                 <span class="w-full font-semibold text-left text-theme-secondary-900">
@@ -159,7 +159,7 @@
                 </div>
             @endif
         @else
-            <div class="p-4 mt-5 border-2 rounded cursor-pointer border-theme-secondary-200">
+            <div class="flex flex-col items-center justify-between p-4 mt-5 space-y-2 border-2 rounded cursor-pointer border-theme-secondary-200 sm:flex-row sm:space-y-0">
                 <span>
                     @if (ARKEcosystem\Hermes\Enums\NotificationFilterEnum::isAll($this->activeFilter))
                         @lang('hermes::menus.notifications.no_notifications')
@@ -167,6 +167,12 @@
                         @lang('hermes::menus.notifications.no_filtered_notifications', ['filter' => $this->activeFilter])
                     @endif
                 </span>
+
+                <button wire:click="applyFilter('')" type="button" class="flex items-center space-x-2 button-secondary">
+                    <x-ark-icon name="reset" />
+
+                    <span>@lang('hermes::actions.reset_filters')</span>
+                </button>
             </div>
         @endif
     </div>
