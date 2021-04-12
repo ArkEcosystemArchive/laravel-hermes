@@ -3,10 +3,13 @@
         <div class="inline-block w-full py-4 md:py-4">
             @foreach($currentUser->notifications->take(4) as $notification)
                 <div class="flex px-2 py-6 leading-5 {{ ! $loop->last ? 'border-b border-dashed border-theme-secondary-200' : '' }}">
-                    <x-hermes-notification-icon
-                        :notification="$notification"
-                        :type="$notification->data['type']"
-                    />
+                    @isset($notification->data['action']['url'])
+                        <a href="{{ $notification->data['action']['url'] }}">
+                            <x-hermes-notification-icon :notification="$notification" :type="$notification->data['type']" />
+                        </a>
+                    @else
+                        <x-hermes-notification-icon :notification="$notification" :type="$notification->data['type']" />
+                    @endisset
 
                     <div class="flex flex-col w-full ml-5 space-y-1 overflow-auto">
                         <div class="flex flex-row justify-between">
@@ -25,7 +28,7 @@
                             </span>
 
                             <div class="flex flex-row space-x-4">
-                                @isset($notification->data['action'])
+                                @isset($notification->data['action']['url'])
                                     <span class="mt-1 font-semibold whitespace-nowrap link md:mt-0">
                                         <a href="{{ $notification->data['action']['url'] }}">{{ $notification->data['action']['title'] }}</a>
                                     </span>
