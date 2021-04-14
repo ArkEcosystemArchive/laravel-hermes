@@ -112,7 +112,8 @@ final class ManageNotifications extends Component
         $this->user->notifications()->findOrFail($notificationId)->markAsUnread();
     }
 
-    public function batchActionPerformed(): void {
+    public function batchActionPerformed(): void
+    {
         $this->selectedNotifications = [];
     }
 
