@@ -63,4 +63,5 @@
             </div>
         </div>
     </div>
+</div>
 @if($hasRoute)</a>@endif
