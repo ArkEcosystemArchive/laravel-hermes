@@ -9,19 +9,22 @@
     $media = optional($relatable)->logo();
     $identifier = optional($relatable)->fallbackIdentifier();
     $defaultLogo =  $notification->logo();
+
+    $hasRoute = $notification->route() !== null;
 @endphp
 
-<div class="relative inline-block pointer-events-none avatar-wrapper">
-    <div class="relative w-11 h-11">
-        @if($media)
-            {{ $media->img('', ['class' => 'absolute object-cover w-full h-full rounded-md']) }}
-        @elseif($identifier)
-            <x-ark-avatar :identifier="$identifier" class="absolute object-cover w-full h-full rounded-md" />
-        @elseif($defaultLogo)
-            <img class="object-cover rounded-md" src="{{ $defaultLogo }}" />
-        @else
-            <div class="border border-theme-secondary-200 w-11 h-11"></div>
-        @endif
+@if($hasRoute)<a href="{{ $notification->route() }}">@endif
+    <div class="relative inline-block pointer-events-none avatar-wrapper">
+        <div class="relative w-11 h-11">
+            @if($media)
+                {{ $media->img('', ['class' => 'absolute object-cover w-full h-full rounded-md']) }}
+            @elseif($identifier)
+                <x-ark-avatar :identifier="$identifier" class="absolute object-cover w-full h-full rounded-md" />
+            @elseif($defaultLogo)
+                <img class="object-cover rounded-md" src="{{ $defaultLogo }}" />
+            @else
+                <div class="border border-theme-secondary-200 w-11 h-11"></div>
+            @endif
 
         <div
             class="absolute flex items-center justify-center text-transparent rounded-full avatar-circle shadow-solid"
@@ -60,4 +63,4 @@
             </div>
         </div>
     </div>
-</div>
+@if($hasRoute)</a>@endif
