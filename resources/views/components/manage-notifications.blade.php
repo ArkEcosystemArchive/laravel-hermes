@@ -39,30 +39,34 @@
                     </x-ark-dropdown>
                 </div>
 
-                <div class="w-10 sm:relative">
-                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="flex justify-center w-10 h-10 rounded bg-theme-primary-100 text-theme-primary-600">
-                        <div class="py-3">
-                            <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsRead">
-                                @lang('hermes::menus.notifications-dropdown.mark_selected_as_read')
-                            </div>
+                <div>
+                    @if (count($this->selectedNotifications))
+                        <div class="w-10 sm:relative">
+                            <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="flex justify-center w-10 h-10 rounded bg-theme-primary-100 text-theme-primary-600">
+                                <div class="py-3">
+                                    <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsRead">
+                                        @lang('hermes::menus.notifications-dropdown.mark_selected_as_read')
+                                    </div>
 
-                            <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsUnread">
-                                @lang('hermes::menus.notifications-dropdown.mark_selected_as_unread')
-                            </div>
+                                    <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsUnread">
+                                        @lang('hermes::menus.notifications-dropdown.mark_selected_as_unread')
+                                    </div>
 
-                            <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsStarred">
-                                @lang('hermes::menus.notifications-dropdown.mark_selected_as_starred')
-                            </div>
+                                    <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsStarred">
+                                        @lang('hermes::menus.notifications-dropdown.mark_selected_as_starred')
+                                    </div>
 
-                            <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsUnstarred">
-                                @lang('hermes::menus.notifications-dropdown.unstar_selected')
-                            </div>
+                                    <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsUnstarred">
+                                        @lang('hermes::menus.notifications-dropdown.unstar_selected')
+                                    </div>
 
-                            <div class="cursor-pointer dropdown-entry" wire:click="deleteSelected">
-                                @lang('hermes::menus.notifications-dropdown.mark_selected_as_delete')
-                            </div>
+                                    <div class="cursor-pointer dropdown-entry" wire:click="deleteSelected">
+                                        @lang('hermes::menus.notifications-dropdown.mark_selected_as_delete')
+                                    </div>
+                                </div>
+                            </x-ark-dropdown>
                         </div>
-                    </x-ark-dropdown>
+                    @endif
                 </div>
             </div>
             <button type="button" class="items-center justify-end hidden cursor-pointer sm:flex link" wire:click="markAllAsRead">@lang('hermes::actions.mark_all_as_read')</button>
