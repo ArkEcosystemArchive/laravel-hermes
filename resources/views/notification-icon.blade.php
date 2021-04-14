@@ -60,6 +60,7 @@
                         <x-ark-icon name="notification" size="sm" class="text-theme-warning-600" />
                     </div>
                 @endif
+                </div>
             </div>
         </div>
     </div>
