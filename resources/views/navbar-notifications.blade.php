@@ -1,8 +1,8 @@
 <div class="flex-1 px-8 md:px-10">
     @if(Auth::check() && $notificationCount > 0)
-        <div class="inline-block w-full py-4 md:py-4">
+        <div class="inline-block w-full py-4 md:py-4" dusk="navigation-notifications">
             @foreach($currentUser->notifications->take(4) as $notification)
-                <div class="flex px-2 py-6 leading-5 {{ ! $loop->last ? 'border-b border-dashed border-theme-secondary-200' : '' }}">
+                <div class="flex px-2 py-6 leading-5 {{ ! $loop->last ? 'border-b border-dashed border-theme-secondary-200' : '' }}" dusk="navigation-notification">
                     <x-hermes-notification-icon :notification="$notification" :type="$notification->data['type']" />
 
                     <div class="flex flex-col w-full ml-5 space-y-1 overflow-auto">
