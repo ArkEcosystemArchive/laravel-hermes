@@ -13,7 +13,7 @@
     $hasRoute = $notification->route() !== null;
 @endphp
 
-@if($hasRoute)<a href="{{ $notification->route() }}" class="notification-avatar">@endif
+@if($hasRoute)<a href="{{ $notification->route() }}" class="notification-avatar-link">@endif
     <div class="relative inline-block pointer-events-none avatar-wrapper">
         <div class="relative w-11 h-11">
             @if($media)
