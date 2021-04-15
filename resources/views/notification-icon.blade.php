@@ -13,7 +13,7 @@
     $hasRoute = $notification->route() !== null;
 @endphp
 
-@if($hasRoute)<a href="{{ $notification->route() }}">@endif
+@if($hasRoute)<a href="{{ $notification->route() }}" dusk="navigation-notification-clickable-avatar">@endif
     <div class="relative inline-block pointer-events-none avatar-wrapper">
         <div class="relative w-11 h-11">
             @if($media)
