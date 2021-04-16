@@ -49,11 +49,11 @@
                     </div>
                 @elseif ($type === ARKEcosystem\Hermes\Enums\NotificationTypeEnum::COMMENT)
                     <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-secondary-200">
-                        <x-ark-icon name="notifications.comment" size="sm" class="text-theme-secondary-900" />
+                        <x-ark-icon name="notifications.comment" size="xs" class="text-theme-secondary-900" />
                     </div>
                 @elseif ($type === ARKEcosystem\Hermes\Enums\NotificationTypeEnum::MENTION)
                     <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-secondary-200">
-                        <x-ark-icon name="notifications.mention" size="xs" class="text-theme-secondary-900" />
+                        <x-ark-icon name="notifications.mention" size="sm" class="text-theme-secondary-900" />
                     </div>
                 @elseif ($type === ARKEcosystem\Hermes\Enums\NotificationTypeEnum::ANNOUNCEMENT)
                     <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-warning-100">
