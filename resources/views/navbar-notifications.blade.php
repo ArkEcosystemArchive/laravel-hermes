@@ -44,7 +44,7 @@
             </div>
         </div>
     @else
-        <div class="p-6 mt-8 text-center border-2 rounded-lg border-theme-secondary-200">
+        <div class="p-6 mt-8 text-center border-2 rounded-xl border-theme-secondary-200">
             <span>@lang('hermes::menus.notifications.no_notifications')</span>
         </div>
         <div class="py-8 md:px-8">

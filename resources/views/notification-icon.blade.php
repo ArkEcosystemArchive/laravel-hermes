@@ -17,11 +17,11 @@
     <div class="relative inline-block pointer-events-none avatar-wrapper">
         <div class="relative w-11 h-11">
             @if($media)
-                {{ $media->img('', ['class' => 'absolute object-cover w-full h-full rounded-md']) }}
+                {{ $media->img('', ['class' => 'absolute object-cover w-full h-full rounded-xl']) }}
             @elseif($identifier)
-                <x-ark-avatar :identifier="$identifier" class="absolute object-cover w-full h-full rounded-md" />
+                <x-ark-avatar :identifier="$identifier" class="absolute object-cover w-full h-full rounded-xl" />
             @elseif($defaultLogo)
-                <img class="object-cover rounded-md" src="{{ $defaultLogo }}" />
+                <img class="object-cover rounded-xl" src="{{ $defaultLogo }}" />
             @else
                 <div class="border border-theme-secondary-200 w-11 h-11"></div>
             @endif
