@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="w-10 sm:relative">
-                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="flex justify-center w-10 h-10 rounded-xl bg-theme-primary-100 text-theme-primary-600">
+                    <x-ark-dropdown wrapper-class="top-0 right-0 inline-block text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="flex justify-center w-10 h-10 rounded bg-theme-primary-100 text-theme-primary-600">
                         <div class="py-3">
                             <div class="cursor-pointer dropdown-entry" wire:click="markSelectedAsRead">
                                 @lang('hermes::menus.notifications-dropdown.mark_selected_as_read')
