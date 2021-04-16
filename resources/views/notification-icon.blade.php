@@ -13,7 +13,7 @@
     $hasRoute = $notification->route() !== null;
 @endphp
 
-@if($hasRoute)<a href="{{ $notification->route() }}">@endif
+@if($hasRoute)<a href="{{ $notification->route() }}" class="notification-avatar-link">@endif
     <div class="relative inline-block pointer-events-none avatar-wrapper">
         <div class="relative w-11 h-11">
             @if($media)
@@ -49,11 +49,11 @@
                     </div>
                 @elseif ($type === ARKEcosystem\Hermes\Enums\NotificationTypeEnum::COMMENT)
                     <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-secondary-200">
-                        <x-ark-icon name="notifications.comment" size="sm" class="text-theme-secondary-900" />
+                        <x-ark-icon name="notifications.comment" size="xs" class="text-theme-secondary-900" />
                     </div>
                 @elseif ($type === ARKEcosystem\Hermes\Enums\NotificationTypeEnum::MENTION)
                     <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-secondary-200">
-                        <x-ark-icon name="notifications.mention" size="xs" class="text-theme-secondary-900" />
+                        <x-ark-icon name="notifications.mention" size="sm" class="text-theme-secondary-900" />
                     </div>
                 @elseif ($type === ARKEcosystem\Hermes\Enums\NotificationTypeEnum::ANNOUNCEMENT)
                     <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full bg-theme-warning-100">
