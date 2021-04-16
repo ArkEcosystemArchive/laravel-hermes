@@ -98,6 +98,8 @@ final class ManageNotifications extends Component
         foreach ($this->selectedNotifications as $notification) {
             $this->markAsRead($notification);
         }
+
+        $this->batchActionPerformed();
     }
 
     public function markAllAsRead(): void
@@ -110,11 +112,18 @@ final class ManageNotifications extends Component
         $this->user->notifications()->findOrFail($notificationId)->markAsUnread();
     }
 
+    public function batchActionPerformed(): void
+    {
+        $this->selectedNotifications = [];
+    }
+
     public function markSelectedAsUnread(): void
     {
         foreach ($this->selectedNotifications as $notification) {
             $this->markAsUnread($notification);
         }
+
+        $this->batchActionPerformed();
     }
 
     public function markAsStarred(string $notificationId): void
@@ -127,6 +136,8 @@ final class ManageNotifications extends Component
         foreach ($this->selectedNotifications as $notification) {
             $this->markAsStarred($notification);
         }
+
+        $this->batchActionPerformed();
     }
 
     public function markAsUnstarred(string $notificationId): void
@@ -139,6 +150,8 @@ final class ManageNotifications extends Component
         foreach ($this->selectedNotifications as $notification) {
             $this->markAsUnstarred($notification);
         }
+
+        $this->batchActionPerformed();
     }
 
     public function deleteNotification(string $notificationId): void
@@ -152,7 +165,7 @@ final class ManageNotifications extends Component
             $this->deleteNotification($notification);
         }
 
-        $this->selectedNotifications = [];
+        $this->batchActionPerformed();
     }
 
     public function getStateColor(DatabaseNotification $notification): string
