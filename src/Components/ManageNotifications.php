@@ -156,7 +156,7 @@ final class ManageNotifications extends Component
 
     public function deleteNotification(string $notificationId): void
     {
-        $this->user->notifications()->findOrFail($notificationId)->delete();
+        $this->user->notifications()->find($notificationId)?->delete();
     }
 
     public function deleteSelected(): void
