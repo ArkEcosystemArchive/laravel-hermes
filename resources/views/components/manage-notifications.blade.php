@@ -164,7 +164,7 @@
             @endif
         @else
             <div class="flex flex-col items-center justify-between p-4 mt-5 space-y-2 border-2 rounded cursor-pointer border-theme-secondary-200 sm:flex-row sm:space-y-0">
-                <span>
+                <span class="p-3">
                     @if (ARKEcosystem\Hermes\Enums\NotificationFilterEnum::isAll($this->activeFilter))
                         @lang('hermes::menus.notifications.no_notifications')
                     @else
