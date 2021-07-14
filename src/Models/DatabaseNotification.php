@@ -62,4 +62,27 @@ abstract class DatabaseNotification extends BaseNotification
     abstract public function name(): string;
 
     abstract public function logo(): string;
+
+    public function title(): ?string
+    {
+        return data_get($this->relatable, 'title')
+            ?? data_get($this->data, 'action.title');
+    }
+
+    public function content(): ?string
+    {
+        return data_get($this->relatable, 'body')
+            ?? data_get($this->data, 'content');
+    }
+
+    public function link(): ?string
+    {
+        return data_get($this->relatable, 'link')
+            ?? data_get($this->data, 'action.url');
+    }
+
+    public function hasAction(): bool
+    {
+        return (bool) data_get($this->data, 'action');
+    }
 }
