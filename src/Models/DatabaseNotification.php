@@ -4,6 +4,7 @@ namespace ARKEcosystem\Hermes\Models;
 
 use ARKEcosystem\Fortify\Models\Concerns\HasLocalizedTimestamps;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Notifications\DatabaseNotification as BaseNotification;
 use Illuminate\Support\Arr;
@@ -65,18 +66,21 @@ abstract class DatabaseNotification extends BaseNotification
 
     public function title(): ?string
     {
+        /* @phpstan-ignore-next-line  */
         return data_get($this->relatable, 'title')
             ?? data_get($this->data, 'action.title');
     }
 
     public function content(): ?string
     {
+        /* @phpstan-ignore-next-line  */
         return data_get($this->relatable, 'body')
             ?? data_get($this->data, 'content');
     }
 
     public function link(): ?string
     {
+        /* @phpstan-ignore-next-line  */
         return data_get($this->relatable, 'link')
             ?? data_get($this->data, 'action.url');
     }
