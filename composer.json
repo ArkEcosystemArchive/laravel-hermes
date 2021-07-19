@@ -16,11 +16,7 @@
         "arkecosystem/fortify": "^4.5"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.0",
-        "nunomaduro/larastan": "^0.7.6",
-        "pestphp/pest": "^1.7",
-        "orchestra/testbench": "^6.18",
-        "graham-campbell/analyzer": "^3.0"
+        "arkecosystem/stan": "^3.0"
     },
     "autoload": {
         "psr-4": {
