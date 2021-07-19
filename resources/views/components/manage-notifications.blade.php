@@ -65,10 +65,14 @@
                     </x-ark-dropdown>
                 </div>
             </div>
-            <button type="button" class="items-center justify-end hidden cursor-pointer sm:flex link" wire:click="markAllAsRead">@lang('hermes::actions.mark_all_as_read')</button>
+            @if($notificationCount > 0)
+                <button type="button" class="items-center justify-end hidden cursor-pointer sm:flex link" wire:click="markAllAsRead">@lang('hermes::actions.mark_all_as_read')</button>
+            @endif
         </div>
 
-        <button type="button" class="flex items-center mt-2 sm:hidden link" wire:click="markAllAsRead">@lang('hermes::actions.mark_all_as_read')</button>
+        @if($notificationCount > 0)
+            <button type="button" class="flex items-center mt-2 sm:hidden link" wire:click="markAllAsRead">@lang('hermes::actions.mark_all_as_read')</button>
+        @endif
 
         @if ($notificationCount > 0 && $this->notifications->count() > 0)
             @foreach($this->notifications as $notification)
@@ -160,7 +164,7 @@
             @endif
         @else
             <div class="flex flex-col items-center justify-between p-4 mt-5 space-y-2 border-2 rounded cursor-pointer border-theme-secondary-200 sm:flex-row sm:space-y-0">
-                <span>
+                <span class="p-3">
                     @if (ARKEcosystem\Hermes\Enums\NotificationFilterEnum::isAll($this->activeFilter))
                         @lang('hermes::menus.notifications.no_notifications')
                     @else
@@ -168,11 +172,13 @@
                     @endif
                 </span>
 
-                <button wire:click="applyFilter('')" type="button" class="flex items-center space-x-2 button-secondary">
-                    <x-ark-icon name="reset" />
+                @if (! ARKEcosystem\Hermes\Enums\NotificationFilterEnum::isAll($this->activeFilter))
+                    <button wire:click="applyFilter('')" type="button" class="flex items-center space-x-2 button-secondary whitespace-nowrap">
+                        <x-ark-icon name="reset" />
 
-                    <span>@lang('hermes::actions.reset_filters')</span>
-                </button>
+                        <span>@lang('hermes::actions.reset_filters')</span>
+                    </button>
+                @endif
             </div>
         @endif
     </div>
