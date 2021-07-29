@@ -18,6 +18,7 @@ trait HasNotifications
     {
         return $this
             ->morphMany(config('hermes.models.notification'), 'notifiable')
+            ->with('relatable')
             ->orderBy('created_at', 'desc')
             ->orderBy('id');
     }
