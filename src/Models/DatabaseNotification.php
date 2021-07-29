@@ -88,7 +88,7 @@ abstract class DatabaseNotification extends BaseNotification
     public function linkTitle(): ?string
     {
         /* @phpstan-ignore-next-line  */
-        return data_get($this->data, 'action.url', trans('hermes::actions.view'));
+        return data_get($this->data, 'action.title', trans('hermes::actions.view'));
     }
 
     public function hasAction(): bool
