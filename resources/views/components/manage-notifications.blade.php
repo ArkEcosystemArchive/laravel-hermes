@@ -140,7 +140,7 @@
                                         <div class="flex flex-col sm:block">
                                             <span>{{ $notification->content() }}</span>
                                             @if($notification->hasAction())
-                                                <a href="{{ $notification->link() }}" class="font-semibold link">{{ $notification->title() }}</a>
+                                                <a href="{{ $notification->link() }}" class="font-semibold link">{{ $notification->linkTitle() }}</a>
                                             @endif
                                         </div>
                                     </div>
