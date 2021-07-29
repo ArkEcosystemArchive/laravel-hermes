@@ -24,7 +24,7 @@
                             <div class="flex flex-row space-x-4">
                                 @if($notification->hasAction())
                                     <span class="mt-1 font-semibold whitespace-nowrap link md:mt-0">
-                                        <a href="{{ $notification->link() }}">{{ $notification->title() }}</a>
+                                        <a href="{{ $notification->link() }}">{{ $notification->linkTitle() }}</a>
                                     </span>
                                 @endif
 

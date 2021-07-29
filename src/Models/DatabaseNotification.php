@@ -68,7 +68,7 @@ abstract class DatabaseNotification extends BaseNotification
     {
         /* @phpstan-ignore-next-line  */
         return data_get($this->relatable, 'title')
-            ?? data_get($this->data, 'action.title');
+            ?? data_get($this->data, 'name');
     }
 
     public function content(): ?string
@@ -83,6 +83,11 @@ abstract class DatabaseNotification extends BaseNotification
         /* @phpstan-ignore-next-line  */
         return data_get($this->relatable, 'link')
             ?? data_get($this->data, 'action.url');
+    }
+
+    public function linkTitle(): ?string
+    {
+        return data_get($this->data, 'action.title', trans('hermes::actions.view'));
     }
 
     public function hasAction(): bool

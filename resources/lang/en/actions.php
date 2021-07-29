@@ -7,4 +7,5 @@ return [
     'show_all'           => 'Show all',
     'open_notifications' => 'Open notifications',
     'reset_filters'      => 'Reset filters',
+    'view'               => 'View',
 ];
