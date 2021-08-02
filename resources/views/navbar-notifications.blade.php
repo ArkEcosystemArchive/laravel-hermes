@@ -8,7 +8,7 @@
                     <div class="flex flex-col w-full ml-5 space-y-1 overflow-auto">
                         <div class="flex flex-row justify-between">
                             <span class="flex-grow font-semibold truncate text-theme-secondary-900">
-                                {{ $notification->name() }}
+                                {{ $notification->title() }}
                             </span>
 
                             <span class="hidden text-sm text-theme-secondary-400 md:block md:text-right whitespace-nowrap">
