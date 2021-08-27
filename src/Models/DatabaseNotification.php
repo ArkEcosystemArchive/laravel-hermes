@@ -96,7 +96,7 @@ abstract class DatabaseNotification extends BaseNotification
         return (bool) data_get($this->data, 'action');
     }
 
-    public function excerpt(?int $length = null): ?string
+    public function excerpt(?int $length = null): string
     {
         return Str::limit(strip_tags($this->content()), $length ?? 200);
     }
