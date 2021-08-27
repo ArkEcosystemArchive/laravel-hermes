@@ -98,6 +98,7 @@ abstract class DatabaseNotification extends BaseNotification
 
     public function excerpt(?int $length = null): string
     {
+        /* @phpstan-ignore-next-line  */
         return Str::limit(strip_tags($this->content()), $length ?? 200);
     }
 }
