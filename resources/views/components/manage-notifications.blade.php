@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="leading-5 text-theme-secondary-600">
                                         <div class="flex flex-col sm:block">
-                                            <span>{{ $notification->content() }}</span>
+                                            <span class="break-words">{{ $notification->excerpt() }}</span>
                                             @if($notification->hasAction())
                                                 <a href="{{ $notification->link() }}" class="font-semibold link">{{ $notification->linkTitle() }}</a>
                                             @endif
