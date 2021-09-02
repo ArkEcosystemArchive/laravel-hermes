@@ -48,7 +48,7 @@
             <span>@lang('hermes::menus.notifications.no_notifications')</span>
         </div>
         <div class="py-8 md:px-8">
-            <img src="{{ asset('images/defaults/no-notifications.svg') }}"/>
+            <img src="{{ asset('images/defaults/no-notifications.svg') }}" alt=""/>
         </div>
     @endif
 </div>

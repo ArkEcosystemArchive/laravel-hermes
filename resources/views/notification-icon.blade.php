@@ -21,7 +21,7 @@
             @elseif($identifier)
                 <x-ark-avatar :identifier="$identifier" class="absolute object-cover w-full h-full rounded-xl" />
             @elseif($defaultLogo)
-                <img class="object-cover rounded-xl" src="{{ $defaultLogo }}" />
+                <img class="object-cover rounded-xl" src="{{ $defaultLogo }}" alt="" />
             @else
                 <div class="border border-theme-secondary-200 w-11 h-11"></div>
             @endif
