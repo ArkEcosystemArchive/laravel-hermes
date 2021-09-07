@@ -24,7 +24,7 @@
                             <div class="flex flex-row space-x-4">
                                 @if($notification->hasAction())
                                     <span class="mt-1 font-semibold whitespace-nowrap link md:mt-0">
-                                        <a href="{{ $notification->link() }}">{{ $notification->linkTitle() }}</a>
+                                        <a href="{{ $notification->link() }}" class="focus-visible:rounded">{{ $notification->linkTitle() }}</a>
                                     </span>
                                 @endif
 
@@ -48,7 +48,7 @@
             <span>@lang('hermes::menus.notifications.no_notifications')</span>
         </div>
         <div class="py-8 md:px-8">
-            <img src="{{ asset('images/defaults/no-notifications.svg') }}"/>
+            <img src="{{ asset('images/defaults/no-notifications.svg') }}" alt=""/>
         </div>
     @endif
 </div>
