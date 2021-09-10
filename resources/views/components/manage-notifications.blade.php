@@ -155,7 +155,7 @@
                                     />
                                 </div>
 
-                                <div class="flex-col w-full space-y-1">
+                                <div class="flex-col w-full space-y-1 min-w-0">
                                     <div class="flex justify-between space-x-3">
                                         <div class="block space-x-3">
                                             <h3 class="mb-0 text-xl font-semibold">{{ $notification->name() }}</span>
@@ -194,7 +194,7 @@
                                     </div>
                                     <div class="leading-5 text-theme-secondary-600">
                                         <div class="flex flex-col sm:block">
-                                            <span class="flex w-11/12">{{ $notification->excerpt() }}</span>
+                                            <span class="break-words">{{ $notification->excerpt() }}</span>
 
                                             @if($notification->hasAction())
                                                 <a href="{{ $notification->link() }}" class="font-semibold link">
