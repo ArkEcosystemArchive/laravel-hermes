@@ -131,7 +131,7 @@
                                 ></button>
                             @endif
 
-                            <div class="space-x-2 flex-inline sm:hidden">
+                            <div class="space-x-2 flex sm:hidden items-center">
                                 <span class="text-xs whitespace-nowrap text-theme-secondary-400">
                                     {{ $notification->created_at_local->diffForHumans() }}
                                 </span>
@@ -157,8 +157,8 @@
 
                                 <div class="flex-col w-full space-y-1">
                                     <div class="flex justify-between space-x-3">
-                                        <div class="inline-flex items-start items-center space-x-3">
-                                            <h3 class="mb-0 text-xl font-semibold">{{ $notification->name() }}</h3>
+                                        <div class="block space-x-3">
+                                            <h3 class="mb-0 text-xl font-semibold">{{ $notification->name() }}</span>
                                             @if ($notification->is_starred)
                                                 <button
                                                     type="button"
@@ -194,7 +194,8 @@
                                     </div>
                                     <div class="leading-5 text-theme-secondary-600">
                                         <div class="flex flex-col sm:block">
-                                            <span class="break-words">{{ $notification->excerpt() }}</span>
+                                            <span class="flex w-11/12">{{ $notification->excerpt() }}</span>
+
                                             @if($notification->hasAction())
                                                 <a href="{{ $notification->link() }}" class="font-semibold link">
                                                     {{ $notification->linkTitle() }}
