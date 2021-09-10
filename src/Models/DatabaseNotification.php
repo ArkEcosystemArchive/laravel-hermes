@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Notifications\DatabaseNotification as BaseNotification;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 /**
  * @property string $relatable_type
@@ -93,5 +94,11 @@ abstract class DatabaseNotification extends BaseNotification
     public function hasAction(): bool
     {
         return (bool) data_get($this->data, 'action');
+    }
+
+    public function excerpt(?int $length = null): string
+    {
+        /* @phpstan-ignore-next-line  */
+        return Str::limit(strip_tags($this->content()), $length ?? 200);
     }
 }
