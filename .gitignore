@@ -54,8 +54,7 @@ Temporary Items
 
 # Custom
 icons.html
-.php_cs.cache
+.php-cs-fixer.cache
 
 coverage.xml
 .coverage
-

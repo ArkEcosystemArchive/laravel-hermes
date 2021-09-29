@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ARKEcosystem\Hermes\Models\Concerns;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;

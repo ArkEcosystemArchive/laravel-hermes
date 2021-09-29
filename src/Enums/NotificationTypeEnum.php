@@ -1,20 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ARKEcosystem\Hermes\Enums;
 
 final class NotificationTypeEnum
 {
-    const SUCCESS = 'success';
+    public const SUCCESS = 'success';
 
-    const WARNING = 'warning';
+    public const WARNING = 'warning';
 
-    const DANGER = 'danger';
+    public const DANGER = 'danger';
 
-    const BLOCKED = 'blocked';
+    public const BLOCKED = 'blocked';
 
-    const COMMENT = 'comment';
+    public const COMMENT = 'comment';
 
-    const MENTION = 'mention';
+    public const MENTION = 'mention';
 
-    const ANNOUNCEMENT = 'announcement';
+    public const ANNOUNCEMENT = 'announcement';
 }
