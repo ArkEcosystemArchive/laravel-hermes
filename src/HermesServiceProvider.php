@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ARKEcosystem\Hermes;
 
 use ARKEcosystem\Hermes\Components\ManageNotifications;

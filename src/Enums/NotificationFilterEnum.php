@@ -1,18 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ARKEcosystem\Hermes\Enums;
 
 final class NotificationFilterEnum
 {
-    const ALL = 'all';
+    public const ALL = 'all';
 
-    const READ = 'read';
+    public const READ = 'read';
 
-    const UNREAD = 'unread';
+    public const UNREAD = 'unread';
 
-    const STARRED = 'starred';
+    public const STARRED = 'starred';
 
-    const UNSTARRED = 'unstarred';
+    public const UNSTARRED = 'unstarred';
 
     public static function isAll(string $value):bool
     {
